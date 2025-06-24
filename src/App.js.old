@@ -1,0 +1,124 @@
+import React, { useState } from 'react';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Layout from './components/Layout/Layout';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import SOAPNotes from './pages/SOAPNotes';
+import Analytics from './pages/Analytics';
+import Cases from './pages/Cases';
+import './App.css';
+
+function AppContent() {
+  const { user } = useAuth();
+  const [currentPage, setCurrentPage] = useState('dashboard');
+
+  if (!user) {
+    return <Login />;
+  }
+
+  const renderPage = () => {
+    switch(currentPage) {
+      case 'soap':
+        return <SOAPNotes />;
+      case 'analytics':
+        return <Analytics />;
+      case 'cases':
+        return <Cases />;
+      default:
+        return <Dashboard onNavigate={setCurrentPage} />;
+    }
+  };
+
+  return (
+    <Layout>
+      {/* Navigation Bar */}
+      <nav style={{ 
+        background: 'white', 
+        padding: '1rem', 
+        marginBottom: '2rem', 
+        borderRadius: '12px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        display: 'flex',
+        gap: '1rem',
+        flexWrap: 'wrap'
+      }}>
+        <button 
+          onClick={() => setCurrentPage('dashboard')}
+          style={{ 
+            padding: '0.75rem 1.5rem', 
+            background: currentPage === 'dashboard' ? '#3b82f6' : '#f3f4f6', 
+            color: currentPage === 'dashboard' ? 'white' : '#374151',
+            border: 'none', 
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: '600',
+            fontSize: '0.95rem',
+            transition: 'all 0.2s'
+          }}
+        >
+          🏠 Dashboard
+        </button>
+        <button 
+          onClick={() => setCurrentPage('soap')}
+          style={{ 
+            padding: '0.75rem 1.5rem', 
+            background: currentPage === 'soap' ? '#3b82f6' : '#f3f4f6', 
+            color: currentPage === 'soap' ? 'white' : '#374151',
+            border: 'none', 
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: '600',
+            fontSize: '0.95rem',
+            transition: 'all 0.2s'
+          }}
+        >
+          📝 SOAP Notes
+        </button>
+        <button 
+          onClick={() => setCurrentPage('analytics')}
+          style={{ 
+            padding: '0.75rem 1.5rem', 
+            background: currentPage === 'analytics' ? '#3b82f6' : '#f3f4f6', 
+            color: currentPage === 'analytics' ? 'white' : '#374151',
+            border: 'none', 
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: '600',
+            fontSize: '0.95rem',
+            transition: 'all 0.2s'
+          }}
+        >
+          📊 Analytics
+        </button>
+        <button 
+          onClick={() => setCurrentPage('cases')}
+          style={{ 
+            padding: '0.75rem 1.5rem', 
+            background: currentPage === 'cases' ? '#3b82f6' : '#f3f4f6', 
+            color: currentPage === 'cases' ? 'white' : '#374151',
+            border: 'none', 
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: '600',
+            fontSize: '0.95rem',
+            transition: 'all 0.2s'
+          }}
+        >
+          🔍 Cases
+        </button>
+      </nav>
+      
+      {renderPage()}
+    </Layout>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+}
+
+export default App;

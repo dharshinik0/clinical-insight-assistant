@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="AI-Powered Clinical Documentation for Healthcare Professionals"
+    />
+    <meta name="keywords" content="medical AI, healthcare, SOAP notes, clinical decision support, medical platform, healthcare providers, medical technology" />
+    <meta name="author" content="Clinical Insight Assistant" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clinical-insight-assistant.com/" />
+    <meta property="og:title" content="Clinical Insight Assistant - Medical AI Platform" />
+    <meta property="og:description" content="AI-powered medical platform for healthcare providers. Generate SOAP notes, manage cases, and enhance clinical decision-making." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://clinical-insight-assistant.com/" />
+    <meta property="twitter:title" content="Clinical Insight Assistant - Medical AI Platform" />
+    <meta property="twitter:description" content="AI-powered medical platform for healthcare providers. Generate SOAP notes, manage cases, and enhance clinical decision-making." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/og-image.png" />
+
+    <!-- Medical App Specific Meta Tags -->
+    <meta name="application-name" content="Clinical Insight Assistant" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Clinical Insights" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#1976d2" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" /></noscript>
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#1976d2" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <!-- Structured Data for Medical Application -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Clinical Insight Assistant",
+      "description": "AI-powered medical platform for healthcare providers",
+      "url": "https://clinical-insight-assistant.com",
+      "applicationCategory": "MedicalApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Clinical Insight Assistant"
+      },
+      "featureList": [
+        "AI-powered SOAP note generation",
+        "Medical case management",
+        "Clinical decision support",
+        "HIPAA-compliant data handling",
+        "Real-time medical analytics"
+      ]
+    }
+    </script>
+
+    <title>Clinical Insight AI Medical Assistant</title>
+
+    <!-- Tailwind CSS CDN - CRUCIAL FOR STYLING -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Inline script for Tailwind config and font application -->
+    <style>
+      /* Apply Inter font globally if not handled by Tailwind config */
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        padding: 20px;
+      ">
+        <h1 style="color: #1976d2; margin-bottom: 20px;">Clinical Insight Assistant</h1>
+        <p style="color: #666; max-width: 500px; line-height: 1.6;">
+          This application requires JavaScript to function properly. Please enable JavaScript in your browser to access the Clinical Insight Assistant medical AI platform.
+        </p>
+        <p style="color: #999; margin-top: 20px; font-size: 14px;">
+          For security reasons, this medical application requires JavaScript to ensure proper data handling and HIPAA compliance.
+        </p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+
+    <!-- Service Worker Registration -->
+    <script>
+      // Register service worker for PWA functionality
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+              console.log('SW registered: ', registration);
+            })
+            .catch(function(registrationError) {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+  </body>
+</html> 

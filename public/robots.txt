@@ -1,0 +1,25 @@
+# Clinical Insight Assistant - Medical AI Platform
+# Robots.txt file for search engine crawling
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /uploads/
+
+# Allow important pages
+Allow: /
+Allow: /login
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+
+# Sitemap location
+Sitemap: https://clinical-insight-assistant.com/sitemap.xml
+
+# Crawl delay (optional - be respectful to server)
+Crawl-delay: 1 
